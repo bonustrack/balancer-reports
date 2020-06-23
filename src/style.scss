@@ -1,0 +1,30 @@
+@import '~primer-support';
+@import './fonts';
+
+$border: 1px solid $black;
+
+@import "~@primer/css/core/index.scss";
+@import "~@primer/css/marketing/index.scss";
+
+html, body, #app {
+  font-size: 15px;
+  font-family: 'HarmoniaSansProCyrSemiBd', Helvetica, Arial, sans-serif;
+  background-color: $gray-dark;
+}
+
+h1, h2, h3 {
+  font-family: 'HarmoniaSansProCyrBold', Helvetica, Arial, sans-serif;
+}
+
+.column {
+  text-align: right;
+  width: 160px;
+}
+
+input {
+  font-size: 22px;
+  outline: none;
+  box-shadow: none;
+  color: $white;
+  background-color: $black;
+}

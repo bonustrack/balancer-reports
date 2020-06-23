@@ -5,7 +5,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "express": "vue-cli-service express:watch",
+    "express:run": "vue-cli-service express:run",
+    "start": "vue-cli-service express:run"
   },
   "dependencies": {
     "@primer/css": "^14.4.0",
@@ -31,6 +34,7 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "typescript": "~3.9.3",
+    "vue-cli-plugin-express": "^1.0.2",
     "vue-template-compiler": "^2.6.11"
   }
 }

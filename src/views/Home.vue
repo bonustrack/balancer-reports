@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import reports from '@/reports';
+import reports from '@/../reports';
 
 export default {
   data() {

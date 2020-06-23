@@ -1,6 +1,6 @@
-import _1 from '@/reports/1/_totals.json';
-import _2 from '@/reports/2/_totals.json';
-import _3 from '@/reports/3/_totals.json';
+import _1 from './1/_totals.json';
+import _2 from './2/_totals.json';
+import _3 from './3/_totals.json';
 
 const reports = {};
 

@@ -56,7 +56,7 @@ export default {
   data() {
     return {
       q: '',
-      weekCount: 3,
+      weekCount: 4,
     };
   },
   computed: {

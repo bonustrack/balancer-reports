@@ -3,10 +3,11 @@ import _2 from './2/_totals.json';
 import _3 from './3/_totals.json';
 import _4 from './4/_totals.json';
 import _5 from './5/_totals.json';
+import _6 from './6/_totals.json';
 
 const reports = {};
 
-[_1, _2, _3, _4, _5].forEach((totals, i) => {
+[_1, _2, _3, _4, _5, _6].forEach((totals, i) => {
   Object.entries(totals).forEach(([address, amount]) => {
     if (!reports[address]) reports[address] = {};
     reports[address][i + 1] = parseFloat(amount);

@@ -13,7 +13,12 @@
     <div>
       <div class="d-flex flex-items-center p-3">
         <div class="flex-auto">Address</div>
-        <div v-for="week in weekCount" :key="week" class="column text-right">
+        <div
+          v-for="week in weekCount"
+          :key="week"
+          :class="week < (weekCount - 2) ? 'hide-sm hide-md' : ''"
+          class="column text-right"
+        >
           Week {{ week }}
         </div>
         <div class="column text-right">Total</div>
@@ -24,21 +29,25 @@
         class="d-flex flex-items-center p-3 border-top"
       >
         <div class="flex-auto">
-          <span class="hide-sm hide-md hide-lg">{{ address }}</span>
-          <span class="hide-xl">{{ address | shorten }}</span>
+          <span :title="address">{{ address | shorten }}</span>
         </div>
-        <div v-for="week in weekCount" :key="week" class="column text-right">
-          <span v-if="amounts[week]">
-            {{ amounts[week].toFixed(3) }}
+        <div
+          v-for="week in weekCount"
+          :key="week"
+          :class="week < (weekCount - 2) ? 'hide-sm hide-md' : ''"
+          class="column text-right d-flex flex-column"
+        >
+          <span :title="amounts[week].toFixed(3)" v-if="amounts[week]">
+            {{ numeral(amounts[week]) }}
           </span>
-          <div v-if="amounts[week]" class="text-gray">
-            {{ (100 / 14e4 * amounts[week]).toFixed(3) }}%
-          </div>
+          <span v-if="amounts[week]" class="text-gray">
+            {{ numeral(100 / 14e4 * amounts[week]) }}%
+          </span>
         </div>
         <div class="column text-right">
-          {{ amounts.total.toFixed(3) }}
+          <span :title="amounts.total.toFixed(3)">{{ numeral(amounts.total) }}</span>
           <div v-if="amounts.total" class="text-gray">
-          {{ (100 / (14e4 * weekCount) * amounts.total).toFixed(3) }}%
+          {{ numeral(100 / (14e4 * weekCount) * amounts.total) }}%
           </div>
         </div>
       </div>
@@ -50,13 +59,14 @@
 </template>
 
 <script>
+import numeral from 'numeral';
 import reports from '@/../reports';
 
 export default {
   data() {
     return {
       q: '',
-      weekCount: 6,
+      weekCount: 7,
     };
   },
   computed: {
@@ -65,6 +75,11 @@ export default {
         const userStr = user[0].toLowerCase();
         return userStr.includes(this.q.toLowerCase().trim());
       }).slice(0, 100));
+    },
+  },
+  methods: {
+    numeral(num) {
+      return numeral(num).format('(0.[000]a)');
     },
   },
 };

@@ -1,4 +1,7 @@
-const requireFile = require.context('./', true, /[\w-]+\.json$/);
+import requireContext from 'require-context';
+
+// @ts-ignore
+const requireFile = requireContext(__dirname, true, /[\w-]+\.json$/);
 const files = requireFile.keys().map((fileName) => requireFile(fileName));
 
 const reports = {};

@@ -62,11 +62,14 @@
 import numeral from 'numeral';
 import reports from '@/../reports';
 
+const userReports = reports['0xeF8305E140ac520225DAf050e2f71d5fBcC543e7'.toLowerCase()];
+const weekCount = Object.keys(userReports).length - 1;
+
 export default {
   data() {
     return {
       q: '',
-      weekCount: 7,
+      weekCount,
     };
   },
   computed: {

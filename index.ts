@@ -1,6 +1,6 @@
 import serveStatic from 'serve-static';
 import bodyParser from 'body-parser';
-import reports from './reports';
+import reports from './reports/server';
 
 // @ts-ignore
 const top100Str = Object.entries(reports).slice(0, 100).reduce((a, b: any) => {

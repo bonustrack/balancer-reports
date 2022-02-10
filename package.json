@@ -26,7 +26,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2",
     "lodash": "^4.17.19",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "numeral": "^2.0.6",
     "primer-support": "^5.0.0",
     "require-context": "^1.1.0",
